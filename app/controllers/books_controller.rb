@@ -12,14 +12,22 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = User.find(params[:id])
     @book = Book.all
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
+  end
+  
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to book_path
   end
 
   private
