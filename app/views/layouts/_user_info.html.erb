@@ -1,9 +1,13 @@
 <div class="col-md-3">
-      
+
   <p id="noticce">
   <h2>User info</h2>
   <!--profile_image-->
-
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <% else %>
+      <%= image_tag 'default-image' %>
+  <% end %>
 
     <table class="table">
       <tbody>
@@ -20,12 +24,12 @@
       </tbody>
     </table>
   </p>
-      
+
   <p id="noticce">
     <!--profile edit-->
-    <div class="btn btn-outline-secondary btn-block">
-      <%= link_to edit_user_path(user.id) do %>
-        <i class="fa fa-user-cog fa-1x"></i>
+    <div class="row">
+      <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
+        <i class="fa fa-user-cog"></i>
       <% end %>
     </div>
   </p>
