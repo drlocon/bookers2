@@ -14,7 +14,7 @@
     <header class="bg-dark">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          
+
           <a class="navbar-brand mr-2 text-light" href="/">
             Bookers
           </a>
@@ -47,7 +47,7 @@
                     <i class="fa fa-sign-out-alt fa-1x text-light"></i> Log out
                   <% end %>
                 </li>
-                
+
               <% else %>
                 <!--Home-->
                 <li class="nav-item">
@@ -79,6 +79,12 @@
         </div>
       </nav>
     </header>
+
+    <% if flash[:notice] %>
+      <%= notice %>
+    <% elsif %>
+      <%= alert %>
+    <% end %>
 
     <%= yield %>
 
