@@ -19,11 +19,7 @@
             <tr>
               <td>
                 <!--profile_image-->
-                <% if @user.profile_image.attached? %>
-                  <%= image_tag @user.get_profile_image(100,100) %>
-                <% else %>
-                  <%= image_tag 'default-image' %>
-                <% end %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
               </td>
               <td>
                 <!--title-->

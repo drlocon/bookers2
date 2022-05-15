@@ -10,11 +10,7 @@
           <tr>
             <!--profile_image-->
             <td>
-              <% if @user.profile_image.attached? %>
-                <%= image_tag @user.get_profile_image(100,100) %>
-              <% else %>
-                <%= image_tag 'default-image' %>
-              <% end %>
+              <%= image_tag @user.get_profile_image(100,100) %>
               <br>
               <%= link_to @user.name, user_path(@user.id) %>
             </td>
