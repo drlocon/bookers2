@@ -2,7 +2,7 @@
   <h2>User info</h2>
   <!--profile_image-->
   <%= image_tag @user.get_profile_image(100,100) %>
-  
+
   <table class="table">
     <tbody>
       <!--name-->
@@ -17,12 +17,18 @@
       </tr>
     </tbody>
   </table>
-  
+
   <br>
   <!--profile edit-->
   <div class="row">
-    <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
-      <i class="fa fa-user-cog"></i>
+    <% if @user.id == current_user.id %>
+      <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
+        <i class="fa fa-user-cog"></i>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(current_user.id), class: 'btn btn-outline-secondary btn-block' do %>
+        <i class="fa fa-user-cog"></i>
+      <% end %>
     <% end %>
   </div>
 
@@ -30,6 +36,7 @@
   <!--New book-->
   <h2 class="mr-3">New book</h2>
   <%= form_with model: book do |f| %>
+
     <!--Title-->
     <div class="form-group">
       <label for="book_title">Title</label><br>
