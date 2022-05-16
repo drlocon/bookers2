@@ -14,11 +14,12 @@
       <table class="table">
         <tbody>
           <tr>
-            <!--profile_image-->
+            <!--profile_image_name-->
             <td>
-              <%= image_tag @user.get_profile_image(100,100) %>
-              <br>
-              <%= link_to @user.name, user_path(@user.id) %>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @user.get_profile_image(100,100) %><br>
+                <%= @user.name %>
+              <% end %>
             </td>
             <!--title-->
             <td>
